@@ -111,7 +111,7 @@ withEnv(['channel=D0457H2086Q','NEXUS_PASSWORD = credentials("nexus-password")']
                     env.STAGE='CD 3: Levantar Artefacto Jar en server Jenkins'
                     node {
                             sh "sleep 20"
-                            sh "nohup java -jar DevOpsUsach2020-1.0.0.jar & >/dev/null"
+                            sh "nohup java -jar DevOpsUsach2020-$VERSION" + ".jar & >/dev/null"
                             sh "sleep 20"
                     }
                 }
