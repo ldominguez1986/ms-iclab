@@ -112,7 +112,7 @@ withEnv(['channel=D0457H2086Q','NEXUS_PASSWORD = credentials("nexus-password")']
                     node {
                             sh "sleep 10"
                             sh "echo 'version=$VERSION'"
-                            sh "nohup java -jar DevOpsUsach2020-${VERSION}.jar & >/dev/null"
+                            sh "nohup java -jar DevOpsUsach2020-${VERSION}.jar"
                     }
                 }
                 stage("CD 4: Testear Artefacto - Dormir(Esperar 20sg) "){
