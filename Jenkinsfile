@@ -110,16 +110,16 @@ withEnv(['channel=D0457H2086Q','NEXUS_PASSWORD = credentials("nexus-password")']
                 stage("CD 3: Levantar Artefacto Jar en server Jenkins"){
                     env.STAGE='CD 3: Levantar Artefacto Jar en server Jenkins'
                     node {
-                            sh "sleep 20"
+                            sh "sleep 10"
                             sh "echo 'version=$VERSION'"
                             sh 'nohup java -jar DevOpsUsach2020-1.0.0.jar & >/dev/null'
-                            sh "sleep 20"
                     }
                 }
                 stage("CD 4: Testear Artefacto - Dormir(Esperar 20sg) "){
                     env.STAGE='CD 4: Testear Artefacto - Dormir(Esperar 20sg) '
                     node {
-                            sh "curl -X GET http://localhost:8081/rest/mscovid/test?msg=testing"
+                            // sh "curl -X GET http://localhost:8081/rest/mscovid/test?msg=testing"
+                             sh "sleep 20 && curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
                     }
                 }
                 stage("CD 5: Detener Atefacto jar en Jenkins server"){
